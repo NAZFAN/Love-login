@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .error {
+      color: red;
+      margin-top: 1rem;
+    }
+    .success {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sen misin?</h2>
+    <input type="text" id="nameInput" placeholder="Adınız" />
+    <button onclick="checkName()">Gönder</button>
+    <p id="errorMessage" class="error hidden">Sen o değilsin küçük kardeşim😭🙏🥀.</p>
+    <p id="successMessage" class="success hidden"><a id="driveLink" href="#" target="_blank">SEN geçebilirsin 😻</a></p>
+  </div>
+
+  <script>
+    const validNames = ["naz", "naz eroglu", "naz eroğlu"]; // The most beautiful name in the world istg.
+
+    function checkName() {
+      const input = document.getElementById("nameInput").value.trim().toLowerCase();
+      const errorMessage = document.getElementById("errorMessage");
+      const successMessage = document.getElementById("successMessage");
+      const driveLink = document.getElementById("driveLink");
+
+      if (validNames.includes(input)) {
+        errorMessage.classList.add("hidden");
+        driveLink.href = "https://drive.google.com/drive/folders/17XPPL542AUovf7Ab1G5-crqlaWwn_nxd?usp=drive_link"; //*************
+        successMessage.classList.remove("hidden");
+      } else {
+        successMessage.classList.add("hidden");
+        errorMessage.classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
